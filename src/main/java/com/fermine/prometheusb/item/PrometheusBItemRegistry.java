@@ -12,6 +12,10 @@ public class PrometheusBItemRegistry {
             DeferredRegister.create(ForgeRegistries.ITEMS, PrometheusB.MOD_ID);
 
 
+    public static final RegistryObject<Item> TESTY = ITEMS.register("testy",
+            () -> new Item(new Item.Properties()));
+
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }

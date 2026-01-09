@@ -1,7 +1,8 @@
 package com.fermine.prometheusb;
 
+import com.fermine.prometheusb.block.PrometheusBBlockRegistry;
 import com.fermine.prometheusb.item.PrometheusBItemRegistry;
-import com.fermine.picasso_palace.block.PrometheusBBlockRegistry;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -28,7 +29,6 @@ public class PrometheusB
         modEventBus.addListener(this::addCreative);
         PrometheusBItemRegistry.register(modEventBus);
         PrometheusBBlockRegistry.register(modEventBus);
-
         context.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
@@ -36,7 +36,10 @@ public class PrometheusB
     { }
 
     // Add the example block item to the building blocks tab
-    private void addCreative(BuildCreativeModeTabContentsEvent event)
-    { }
 
+    private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(PrometheusBItemRegistry.TESTY);
+        }
+    }
 }
