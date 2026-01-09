@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "prometheusb:block/pure_vanilla_belle"
+    }
+  }
+}
